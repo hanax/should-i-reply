@@ -4,4 +4,4 @@ To get more messages into stats simply scroll up and load more.
 
 This extension does stats for your chatting history and gives you suggestions of when to reply.
 
-![preview](https://github.com/hanax/should-i-reply/preview.jpg) 
+![preview](https://github.com/hanax/should-i-reply/blob/master/preview.jpg) 
