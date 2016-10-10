@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Should I reply?</title>
+    <style>
+      body {
+        font-family: 'Avenir', sans-serif;
+        font-size: 100%;
+        min-height: 200px;
+        min-width: 600px;
+        font-size: 14px;
+        padding: 20px;
+      }
+      h2 {
+        font-size: 12px;
+        font-weight: 300;
+      }
+      h1 {
+        font-size: 30px;
+        font-weight: 500;
+        margin: 0;
+      }
+      .header {
+        padding: 15px;
+        background-color: #eee;
+        border-radius: 2px;
+        margin-bottom: 20px;
+      }
+      .stats {
+        display: inline-block;
+        border-radius: 2px;
+        background-color: #eee;
+        padding: 4px;
+      }
+    </style>
+
+    <script src="popup.js"></script>
+  </head>
+  <body>
+    <div class="header">
+      <h2> Should I reply? </h2>
+      <h1 id="title"></h1>
+      <h2 id="suggestion"></h2>
+    </div>
+    <div id="status"></div>
+    <div id="stats">
+      <span>
+        On average, you reply in 
+      </span>
+      <span class="stats" id="stats_self">
+      </span>
+      <span>
+         minutes 
+      </span>
+      <span>
+        while
+      </span>
+      <span id="name_opp1">
+      </span>
+      <span>
+         replies in
+      </span>
+      <span class="stats" id="stats_opp">
+      </span>
+      <span>
+         minutes.
+      </span>
+      <br />
+      <span>
+        You sent 
+      </span>
+      <span class="stats" id="n_self">
+      </span>
+      <span>
+         messages
+      </span>
+      <span>
+        while
+      </span>
+      <span id="name_opp2">
+      </span>
+      <span>
+         sent
+      </span>
+      <span class="stats" id="n_opp">
+      </span>
+      <span>
+         messages.
+      </span>
+    </div>
+  </body>
+</html>
+
