@@ -1,4 +1,5 @@
-var urlRegex = /^https?:\/\/www.facebook.com\/messages\/(.*)/;
+var messagesRegex = /^https?:\/\/www.facebook.com\/messages\/(.*)/;
+var messengerRegex = /^https?:\/\/www.messenger.com\/t\/(.*)/;
 
 function getCurrentTabUrl(callback) {
   var queryInfo = {
@@ -12,12 +13,12 @@ function getCurrentTabUrl(callback) {
 }
 
 function renderAtId(id, text) {
-  document.getElementById(id).textContent = text;
+  document.getElementById(id).innerHTML = text;
 }
 
 function renderAtAllClasses(className, text) {
   Array.from(document.getElementsByClassName(className)).forEach(function(e) {
-    e.textContent = text;
+    e.innerHTML = text;
   });
 }
 
@@ -88,8 +89,23 @@ document.addEventListener('DOMContentLoaded', function() {
     renderAtId('error', 'Loading...');
 
     // Get friend id from route
-    if (urlRegex.test(tab.url)) {
-      chrome.tabs.sendMessage(tab.id, { text: 'getMessages', oppName: tab.url.match(urlRegex)[1] }, displayCurConvoInfo);
+    if (messagesRegex.test(tab.url)) {
+      chrome.tabs.sendMessage(tab.id, { text: 'getMessages', oppName: tab.url.match(messagesRegex)[1] }, displayCurConvoInfo);
+    } else if (messengerRegex.test(tab.url)) {
+      renderAtId(
+        'error',
+        'Chatting on messenger.com? Check out <a href=\'https://www.facebook.com/messages/' +
+          tab.url.match(messengerRegex)[1] +
+          '\'>here</a> to see if you should reply or not!'
+      );
+    } else {
+      renderAtId('error', 'This extension only works for facebook messages.');
     }
   });
+});
+
+document.addEventListener('click', function(e){
+  if (e.target.href !== undefined) {
+    chrome.tabs.create({ url: e.target.href });
+  }
 });

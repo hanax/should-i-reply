@@ -23,6 +23,21 @@
         margin: 0;
       }
 
+      a {
+        color: #888;
+        text-decoration: none;
+        transition: all .3s;
+      }
+
+      a:focus {
+        border: none;
+        outline: none;
+      }
+
+      a:hover {
+        color: #000;
+      }
+
       .header {
         padding: 15px;
         background-color: #eee;
@@ -54,7 +69,7 @@
       <h1 id="title"></h1>
       <h2 id="suggestion"></h2>
     </div>
-    <div id="stats">
+    <div class="stats">
       <div id="status"></div>
       <span>
         On average, you replied in 
