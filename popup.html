@@ -11,15 +11,32 @@
         font-size: 14px;
         padding: 25px 20px;
       }
+
       h2 {
         font-size: 12px;
         font-weight: 300;
       }
+
       h1 {
         font-size: 30px;
         font-weight: 500;
         margin: 0;
       }
+
+      .header {
+        padding: 15px;
+        background-color: #eee;
+        border-radius: 2px;
+        margin-bottom: 20px;
+      }
+
+      .tag {
+        display: inline-block;
+        border-radius: 2px;
+        background-color: #eee;
+        padding: 4px;
+      }
+
       #error {
         position: fixed;
         top: 5px;
@@ -28,21 +45,7 @@
         color: #E34B4B;
         padding: 0 4px;
       }
-      .header {
-        padding: 15px;
-        background-color: #eee;
-        border-radius: 2px;
-        margin-bottom: 20px;
-      }
-      .stats {
-        display: inline-block;
-        border-radius: 2px;
-        background-color: #eee;
-        padding: 4px;
-      }
     </style>
-
-    <script src="popup.js"></script>
   </head>
   <body>
     <div id="error"></div>
@@ -54,9 +57,9 @@
     <div id="stats">
       <div id="status"></div>
       <span>
-        On average, you reply in 
+        On average, you replied in 
       </span>
-      <span class="stats" id="stats_self">
+      <span class="tag" id="stats_self">
       </span>
       <span>
          minutes 
@@ -64,12 +67,12 @@
       <span>
         while
       </span>
-      <span id="name_opp1">
+      <span class="name_opp">
       </span>
       <span>
-         replies in
+         replied in
       </span>
-      <span class="stats" id="stats_opp">
+      <span class="tag" id="stats_opp">
       </span>
       <span>
          minutes.
@@ -78,7 +81,7 @@
       <span>
         You sent 
       </span>
-      <span class="stats" id="n_self">
+      <span class="tag" id="n_self">
       </span>
       <span>
          messages
@@ -86,17 +89,18 @@
       <span>
         while
       </span>
-      <span id="name_opp2">
+      <span class="name_opp">
       </span>
       <span>
          sent
       </span>
-      <span class="stats" id="n_opp">
+      <span class="tag" id="n_opp">
       </span>
       <span>
-         messages.
+         .
       </span>
     </div>
+    <script src="popup.js"></script>
   </body>
 </html>
 
