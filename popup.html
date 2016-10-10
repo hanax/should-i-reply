@@ -9,7 +9,7 @@
         min-height: 200px;
         min-width: 600px;
         font-size: 14px;
-        padding: 20px;
+        padding: 25px 20px;
       }
       h2 {
         font-size: 12px;
@@ -19,6 +19,14 @@
         font-size: 30px;
         font-weight: 500;
         margin: 0;
+      }
+      #error {
+        position: fixed;
+        top: 5px;
+        left: 20px;
+        width: 100%;
+        color: #E34B4B;
+        padding: 0 4px;
       }
       .header {
         padding: 15px;
@@ -37,13 +45,14 @@
     <script src="popup.js"></script>
   </head>
   <body>
+    <div id="error"></div>
     <div class="header">
       <h2> Should I reply? </h2>
       <h1 id="title"></h1>
       <h2 id="suggestion"></h2>
     </div>
-    <div id="status"></div>
     <div id="stats">
+      <div id="status"></div>
       <span>
         On average, you reply in 
       </span>

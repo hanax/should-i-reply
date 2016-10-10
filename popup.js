@@ -21,10 +21,12 @@ function formateDate(rawDate) {
 
 function displayCurConvoInfo(e) {
   if (!e) {
+    renderAt('error', 'Some thing went wrong. Please refresh the page and try again.');
     return;
   }
+  renderAt('error', '');
 
-  renderAt('status', 'Out of ' + e.messageNumber + ' most recent messages with ' + e.oppName + ':');
+  renderAt('status', 'Out of ' + e.messageNumber + ' most recent messages with ' + e.oppName);
 
   var cntSession = 0;
   // 0: self, 1: opp
@@ -56,6 +58,7 @@ function displayCurConvoInfo(e) {
 
   var aveSelf = formateDate(tot[0] / cntSession);
   var aveOpp = formateDate(tot[1] / cntSession);
+
   renderAt('stats_self', aveSelf);
   renderAt('name_opp1', e.oppName);
   renderAt('stats_opp', aveOpp);
@@ -66,7 +69,8 @@ function displayCurConvoInfo(e) {
 
   var lastMsg = e.messages[e.messages.length - 1];
   var expectReplyTime = formateDate(lastMsg.time + (tot[1] / cntSession) - Date.now());
-  if (lastMsg.type === 'separator' || expectReplyTime < 0) {
+
+  if (lastMsg.type === 'separator' || expectReplyTime < 0 || aveSelf > aveOpp) {
     renderAt('title', 'YES');
   } else {
     renderAt('title', 'NO');
